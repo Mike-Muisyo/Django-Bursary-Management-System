@@ -1,0 +1,26 @@
+{% extends 'bursary/main.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-body">
+
+          <form action="" method="POST">
+              {% csrf_token %}
+              {{ formset.management_form }}
+              {% for form in formset %}
+                   {{form}}
+                   <hr>
+              {% endfor %}
+
+              <input class="btn btn-info" type="submit" name="Update Information">
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
+

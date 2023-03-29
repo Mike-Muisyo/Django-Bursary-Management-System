@@ -1,0 +1,35 @@
+{% extends 'bursary/main.html' %}
+{% block content %}
+{% include 'bursary/status.html' %}
+
+<br>
+
+<div class="row">
+    <div class="col">
+            <div class="col-md-8">
+                <div class="card card-body">
+
+                    <table class="table table-sm">
+                       <tr>
+                           <th>Bursary Name</th>
+                           <th>Date Applied</th>
+                           <th>Status</th>
+                           <th>Amount Awarded</th>
+                       </tr>
+
+                        {% for application in applications %}
+                          <tr>
+                              <td>{{application.bursary}}</td>
+                              <td>{{application.date_created}}</td>
+                              <td>{{application.status}}</td>
+                              <td>{{application.applyAmount}}</td>
+                          </tr>
+                        {% endfor %}
+
+                    </table>
+               </div>
+           </div>
+    </div>
+</div>
+
+{% endblock content %}

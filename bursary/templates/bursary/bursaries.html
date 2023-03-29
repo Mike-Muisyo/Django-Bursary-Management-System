@@ -1,0 +1,36 @@
+{% extends 'bursary/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class = "row">
+    <div class="col">
+        <div class ="col-md">
+            <div class="card card-body">
+                <h5>BURSARIES</h5>
+            </div>
+            <div class="card card-body">
+                <table class="table">
+                     <tr>
+                        <th>Bursary Name</th>
+                        <th>Category</th>
+                         <th>Bursary Amount</th>
+                         <th>BatchNo</th>
+                    </tr>
+                    {% for i in bursaries %}
+                    <tr>
+                        <td>{{i.name}}</td>
+                        <td>{{i.category}}</td>
+                        <td>{{i.amount}}</td>
+                        <td>{{i.batchNumber}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

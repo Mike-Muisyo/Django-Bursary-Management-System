@@ -1,0 +1,42 @@
+{% extends 'bursary/main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  .profile-pic{
+      max-width:200px;
+      max-height:200px;
+      margin: 0 auto;
+      boarder-radius: 50px;
+  }
+</style>
+
+<br>
+
+<div class="row">
+    <div class="col-md-4">
+      <div class="card card-body">
+        <a class="btn btn-info" href="{% url 'dashboard' %}"> &#8592; Back to Profile</a>
+        <hr>
+        <h3 style="text-align: center">Apply Here</h3>
+        <hr>
+        <img class="profile-pic" src="{{request.user.student.profile_pic.url}}">
+      </div>
+    </div>
+
+  <div class="col">
+    <div class="col-md-8">
+      <div class="card card-body">
+         <form method="POST" action="" enctype="multipart/form-data">
+           {% csrf_token %}
+           {{form.as_p}}
+           <input class="btn btn-info" type="submit" name="Update Information">
+         </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}
